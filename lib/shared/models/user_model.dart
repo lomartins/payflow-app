@@ -13,10 +13,10 @@ class UserModel {
   factory UserModel.fromJson(String json) =>
       UserModel.fromMap(jsonDecode(json));
 
+  String toJson() => jsonEncode(toMap());
+
   toMap() => {
         "name": name,
         "photoURL": photoUrl,
       };
-
-  String toJson() => jsonEncode(toMap());
 }
