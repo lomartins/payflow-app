@@ -1,8 +1,6 @@
-import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:payflow/shared/models/boleto_model.dart';
-import 'package:payflow/shared/themes/appcolors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class InsertBoletoController {
@@ -42,7 +40,7 @@ class InsertBoletoController {
   Future<void> registerBoleto() async {
     final form = formKey.currentState;
     if (form!.validate()) {
-      return saveBoleto();
+      return await saveBoleto();
     }
   }
 }

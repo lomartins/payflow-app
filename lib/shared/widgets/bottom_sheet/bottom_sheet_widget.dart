@@ -26,46 +26,55 @@ class BottomSheetWidget extends StatelessWidget {
     return RotatedBox(
       quarterTurns: 1,
       child: Material(
-        child: Container(
-          color: AppColors.shape,
-          child: Column(
-            children: [
-              Expanded(
-                child: Container(
-                  color: Colors.black.withOpacity(0.6),
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.black.withOpacity(0.6),
+            elevation: 0,
+            leading: BackButton(
+              color: AppColors.background,
+            ),
+          ),
+          body: Container(
+            color: AppColors.shape,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Colors.black.withOpacity(0.6),
+                  ),
                 ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Text.rich(
-                      TextSpan(
-                        text: title,
-                        style: AppTextStyles.buttonBoldHeading,
-                        children: [
-                          TextSpan(
-                            text: "\n$subtitle",
-                            style: AppTextStyles.buttonHeading,
-                          ),
-                        ],
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(40),
+                      child: Text.rich(
+                        TextSpan(
+                          text: title,
+                          style: AppTextStyles.buttonBoldHeading,
+                          children: [
+                            TextSpan(
+                              text: "\n$subtitle",
+                              style: AppTextStyles.buttonHeading,
+                            ),
+                          ],
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  Container(
-                    height: 1,
-                    color: AppColors.stroke,
-                  ),
-                  SetLabelButtons(
-                      enablePrimaryColor: true,
-                      primaryLabel: primaryLabel,
-                      primaryOnPressed: primaryOnPressed,
-                      secondaryLabel: secondaryLabel,
-                      secondaryOnPressed: secondaryOnPressed),
-                ],
-              ),
-            ],
+                    Container(
+                      height: 1,
+                      color: AppColors.stroke,
+                    ),
+                    SetLabelButtons(
+                        enablePrimaryColor: true,
+                        primaryLabel: primaryLabel,
+                        primaryOnPressed: primaryOnPressed,
+                        secondaryLabel: secondaryLabel,
+                        secondaryOnPressed: secondaryOnPressed),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
